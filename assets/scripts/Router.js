@@ -79,7 +79,11 @@ export class Router {
     }
 
     if (statePopped != true && window.location.hash != hash) {
-      history.pushState({"page":page}, '', hash);
+      if (page == 'home') {
+        history.pushState({"page":page}, '', ' ');
+      } else {
+        history.pushState({"page":page}, '', hash);
+      }
     }
 
     this[page]();
